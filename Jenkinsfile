@@ -1,41 +1,19 @@
 pipeline {
-    agent any
-
+    
     stages {
-        stage ('Compile Stage') {
-
+        stage ('Stage1-JM') {
+            agent {
+              label {
+                label "built-in"
+                customWorkspace "/mnt/repo"
+               }
+           }
             steps {
                 
-                    sh 'mvn clean compile'
+                    sh 'mvn clean install'
                 }
             
-        }
-
-        stage ('Testing Stage') {
-
-            steps {
-                
-                    sh 'mvn test'
-                }
-            
-        }
-
-
-        stage ('Install Stage') {
-            steps {
-                
-                    sh 'mvn install'
-                }
-            
-        }
-        
-        stage ('Echo Branch') {
-
-            steps {
-                
-                    echo "This is master branch"
-                }
-            
+        }  
         }
     }
 }
