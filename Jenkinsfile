@@ -9,7 +9,7 @@ pipeline {
         stage ('Stage1-JM') {
             
             steps {
-                
+                    sh "yum install maven -y"
                     sh 'mvn clean install'
                 }
             
