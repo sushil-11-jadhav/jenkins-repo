@@ -1,15 +1,14 @@
 pipeline {
     agent {
               label {
-                label "built-in"
+                label "slave"
                 customWorkspace "/mnt/repo"
                }
     }
     stages {
-        stage ('Stage1-JM') {
+        stage ('Stage1-slavejnlp') {
             
             steps {
-                    sh "yum install maven -y"
                     sh 'mvn clean install'
                 }
             
