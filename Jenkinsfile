@@ -1,15 +1,15 @@
 pipeline {
     agent {
               label {
-                label "slave"
+                label "slave ssh"
                 customWorkspace "/mnt/repo"
                }
     }
     stages {
-        stage ('Stage1-slavejnlp') {
+        stage ('Stage1-slavessh') {
             
             steps {
-                    sh 'mvn clean install'
+                    sh 'sudo mvn clean install'
                 }
             
         }  
